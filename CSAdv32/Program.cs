@@ -43,8 +43,14 @@ namespace CSAdv32
             get { return i * i; }
         }
     }
+    
     internal static class Program
     {
+        static void NextPos(int x, int y, int vx, int vy, out int rx, out int ry)
+        {
+            rx = x + vx;
+            ry = y + vy;
+        }
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
@@ -73,6 +79,15 @@ namespace CSAdv32
             {
                 Console.WriteLine("숫자를 입력해주세요." + output);
             }
+
+            int x = 0;
+            int y = 0;
+            int vx = 1;
+            int vy = 1;
+
+            Console.WriteLine("현재좌표 x: {0}, y: {1}", x, y);
+            NextPos(x, y, vx, vy, out x, out y);
+            Console.WriteLine("다음좌표 x: {0}, y: {1}", x, y);
         }
     }
 }
